@@ -1,4 +1,4 @@
-name: BlogOps CI/CD & DevSecOps
+name: "BlogOps CI/CD and DevSecOps"
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   test-scan-and-build:
-    name: Build, Test & Security Scan
+    name: "Build, Test and Security Scan"
     runs-on: ubuntu-latest
 
     steps:
@@ -23,7 +23,7 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Run Automated Unit & Integration Tests
+      - name: Run Automated Unit and Integration Tests
         run: npm test
 
       - name: Build Local Docker Image
@@ -46,7 +46,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build & Push Production Image to Docker Hub
+      - name: Build and Push Production Image to Docker Hub
         if: github.ref == 'refs/heads/main' && secrets.DOCKERHUB_USERNAME != ''
         uses: docker/build-push-action@v5
         with:
