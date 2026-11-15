@@ -31,7 +31,7 @@ jobs:
         run: docker build -t blogops:${{ github.sha }} .
 
       - name: DevSecOps Trivy Vulnerability Scanner
-        uses: aquasecurity/trivy-action@0.28.0
+        uses: aquasecurity/trivy-action@master
         with:
           image-ref: 'blogops:${{ github.sha }}'
           format: 'table'
